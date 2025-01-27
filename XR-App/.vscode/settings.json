@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "fluxproject.sln"
+    "dotnet.defaultSolution": "XR-App.sln"
 }

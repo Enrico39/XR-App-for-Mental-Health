@@ -5,17 +5,8 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/TxtTo3D.unity
-    guid: 08bf981da6a0e4132a38a60da902de00
-  - enabled: 0
-    path: Assets/Scenes/WitTo3D.unity
-    guid: 2e56e27ea9ff740d0a6ee727466df8ee
-  - enabled: 0
-    path: Assets/Scenes/WitTo3D 1.unity
-    guid: e8c9ec41ab1744abcb72edf695fc6ec1
   - enabled: 1
-    path: Assets/Scenes/WitTo3D 2.unity
+    path: Assets/Scenes/WitTo3D.unity
     guid: 3353fcbcbd66644f1a09f5ae9604c64d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 34fc86b19623943208de9f4cc686ee09,

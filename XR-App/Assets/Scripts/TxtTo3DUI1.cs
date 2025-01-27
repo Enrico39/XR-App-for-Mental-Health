@@ -4,9 +4,9 @@ using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using Siccity.GLTFUtility; // Assicurati che GLTFUtility sia importato correttamente
+using Siccity.GLTFUtility; 
 using System;
-using TMPro; // Importa TextMeshPro
+using TMPro;
 
 public class TextTo3DUI1 : MonoBehaviour
 {
@@ -93,7 +93,7 @@ public class TextTo3DUI1 : MonoBehaviour
         isGenerating = false;
     }
 
-       private IEnumerator Download3DObject(string objectUrl)
+    private IEnumerator Download3DObject(string objectUrl)
     {
         Debug.Log("Starting download from URL: " + objectUrl);
         UnityWebRequest www = UnityWebRequest.Get(objectUrl);

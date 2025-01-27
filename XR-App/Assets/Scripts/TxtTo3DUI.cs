@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using Siccity.GLTFUtility; // Assicurati che GLTFUtility sia importato correttamente
+using Siccity.GLTFUtility; 
 using System;
 
 public class TextTo3DUI : MonoBehaviour
@@ -30,7 +30,7 @@ public class TextTo3DUI : MonoBehaviour
 
     public void OnGenerateButtonPressed()
     {
-        Debug.Log("Generate button pressed!"); // Debug di test
+        Debug.Log("Generate button pressed!"); // Debug 
         if (isGenerating)
         {
             statusText.text = "Generation already in progress...";

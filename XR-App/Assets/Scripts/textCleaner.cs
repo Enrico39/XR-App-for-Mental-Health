@@ -1,12 +1,11 @@
-using TMPro; // Necessario per lavorare con TextMeshPro
+using TMPro;
 using UnityEngine;
 
 public class TextCleaner : MonoBehaviour
 {
     [SerializeField]
-    private TMP_InputField inputField; // Riferimento al componente TMP_InputField
+    private TMP_InputField inputField; // Riferimento al componente 
 
-    // Metodo pubblico per impostare il testo dell'input field a vuoto
     public void ClearInputField()
     {
         if (inputField != null)

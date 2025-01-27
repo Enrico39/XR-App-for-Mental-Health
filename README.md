@@ -6,5 +6,5 @@ Prima di fare la build del progetto, assicurarsi di potersi collegare correttame
 
 ![Screenshot dell'editor di UNITY](./serverURLimage.png)
 
-- Selezionare l'oggetto ObjectGeneratorManager
-- Controllare che il Server URL sia lo stesso visualizzato sul Server
+- Selezionare l'oggetto ObjectGeneratorManager.
+- Controllare che il Server URL sia lo stesso visualizzato sul Server che gestisce la pipeline.

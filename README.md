@@ -2,9 +2,9 @@
 
 ## Requisiti
 
-Prima di fare la build del progetto, assicurarsi ci essere connessi correttamente al server:
+Prima di fare la build del progetto, assicurarsi di potersi collegare correttamente al server:
 
 ![Screenshot dell'editor di UNITY](./serverURLimage.png)
 
 - Selezionare l'oggetto ObjectGeneratorManager
-- Assicurarsi che il Server URL sia lo stesso visualizzato sul Server
+- Controllare che il Server URL sia lo stesso visualizzato sul Server

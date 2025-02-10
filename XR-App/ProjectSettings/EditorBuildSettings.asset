@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WitTo3D.unity
     guid: 3353fcbcbd66644f1a09f5ae9604c64d
+  - enabled: 1
+    path: Assets/Scenes/IslandScene.unity
+    guid: 2ccbe7880232749818e4553da40e6e18
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 34fc86b19623943208de9f4cc686ee09,
       type: 2}

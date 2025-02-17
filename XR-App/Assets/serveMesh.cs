@@ -64,7 +64,7 @@ public class serveMesh : MonoBehaviour
                     Debug.Log("Mesh loaded successfully!");
 
                     // Istanzia il prefab
-                    GameObject instance = Instantiate(objPrefab, Vector3.zero, Quaternion.identity);
+                    GameObject instance = Instantiate(objPrefab, objPrefab.transform.position, objPrefab.transform.rotation);
                     Transform meshTransform = instance.transform.Find("object/Visuals/Mesh");
 
                     if (meshTransform != null)

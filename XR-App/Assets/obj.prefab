@@ -971,17 +971,17 @@ MonoBehaviour:
     XAxis:
       ConstrainAxis: 1
       AxisRange:
-        Min: 1
+        Min: 0.5
         Max: 3
     YAxis:
       ConstrainAxis: 1
       AxisRange:
-        Min: 1
+        Min: 0.5
         Max: 3
     ZAxis:
       ConstrainAxis: 1
       AxisRange:
-        Min: 1
+        Min: 0.5
         Max: 3
 --- !u!114 &1569046391046724273
 MonoBehaviour:
@@ -1277,8 +1277,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.2, y: 1.3, z: 0.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2090166208920463335}
   m_Father: {fileID: 0}

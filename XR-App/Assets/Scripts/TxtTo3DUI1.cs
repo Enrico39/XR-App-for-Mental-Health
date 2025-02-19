@@ -11,19 +11,20 @@ using TMPro;
 public class TextTo3DUI1 : MonoBehaviour
 {
     [Header("UI Elements")]
-    public TMP_InputField descriptionInput; // Campo di testo per inserire la descrizione (TMP)
-    public Toggle useLessThan15GBTgl;       // Toggle per l'opzione "Use less than 15GB"
-    public Button generateButton;           // Bottone per inviare la richiesta
-    public TMP_Text statusText;             // Testo per mostrare lo stato del processo (TMP)
+    public TMP_InputField descriptionInput;
+    public Toggle useLessThan15GBTgl;
+    public Button generateButton;
+    public TMP_Text statusText;
 
     [Header("Settings")]
-    public string serverUrl = "http://192.168.1.89:5000/process"; // URL del server
+    public string serverUrl = "http://192.168.1.89:5000/process";
 
     private bool isGenerating = false;
     private List<GameObject> generatedObjects = new List<GameObject>();
 
-    [SerializeField] private GameObject objPrefab; // Prefab da instanziare
-
+    [SerializeField] private GameObject objPrefab;
+    [SerializeField] private AudioClip audioClip; // Audio clip selezionabile da Inspector
+    
     private void Start()
     {
         generateButton.onClick.AddListener(OnGenerateButtonPressed);
@@ -31,7 +32,7 @@ public class TextTo3DUI1 : MonoBehaviour
 
     public void OnGenerateButtonPressed()
     {
-        Debug.Log("Generate button pressed!"); // Debug di test
+        Debug.Log("Generate button pressed!");
         if (isGenerating)
         {
             statusText.text = "Generation already in progress...";
@@ -117,31 +118,32 @@ public class TextTo3DUI1 : MonoBehaviour
 
             try
             {
-                // Carica la mesh utilizzando GLTFUtility
                 GameObject importedObject = Importer.LoadFromFile(filePath);
-
                 if (importedObject != null)
                 {
                     Debug.Log("Mesh loaded successfully!");
+                    GameObject instance = Instantiate(objPrefab, objPrefab.transform.position, objPrefab.transform.rotation);
 
-                    // Istanzia il prefab
-                    GameObject instance = Instantiate(objPrefab, Vector3.zero, Quaternion.identity);
+                    // Riproduce il suono se un AudioClip è assegnato
+                    if (audioClip != null)
+                    {
+                        AudioSource audioSource = instance.AddComponent<AudioSource>();
+                        audioSource.clip = audioClip;
+                        audioSource.Play();
+                    }
 
-                    // Naviga nella gerarchia per trovare il componente MeshFilter
                     Transform meshTransform = instance.transform.Find("object/Visuals/Mesh");
-
                     if (meshTransform != null)
                     {
                         MeshFilter prefabMeshFilter = meshTransform.GetComponent<MeshFilter>();
                         MeshRenderer prefabMeshRenderer = meshTransform.GetComponent<MeshRenderer>();
 
-                        // Recupera la mesh e i materiali dall'oggetto importato
                         MeshFilter importedMeshFilter = importedObject.GetComponentInChildren<MeshFilter>();
                         MeshRenderer importedMeshRenderer = importedObject.GetComponentInChildren<MeshRenderer>();
 
                         if (importedMeshFilter != null && prefabMeshFilter != null)
                         {
-                            prefabMeshFilter.mesh = importedMeshFilter.mesh; // Sostituisci la mesh
+                            prefabMeshFilter.mesh = importedMeshFilter.mesh;
                             Debug.Log("Mesh successfully replaced in the prefab.");
                         }
                         else
@@ -151,7 +153,7 @@ public class TextTo3DUI1 : MonoBehaviour
 
                         if (importedMeshRenderer != null && prefabMeshRenderer != null)
                         {
-                            prefabMeshRenderer.materials = importedMeshRenderer.materials; // Sostituisci i materiali
+                            prefabMeshRenderer.materials = importedMeshRenderer.materials;
                             Debug.Log("Materials successfully replaced in the prefab.");
                         }
                         else
@@ -159,7 +161,6 @@ public class TextTo3DUI1 : MonoBehaviour
                             Debug.LogError("MeshRenderer missing on either prefab or imported object.");
                         }
 
-                        // Aggiorna il testo di stato
                         statusText.text = "3D object downloaded and prefab updated!";
                         Debug.Log("3D object instantiated successfully!");
                     }
@@ -169,7 +170,6 @@ public class TextTo3DUI1 : MonoBehaviour
                         statusText.text = "Failed to find object/Visuals/Mesh in the prefab.";
                     }
 
-                    // Distruggi l'oggetto importato originale
                     Destroy(importedObject);
                 }
                 else
@@ -179,7 +179,6 @@ public class TextTo3DUI1 : MonoBehaviour
             }
             catch (Exception ex)
             {
-                // Gestisce gli errori durante il caricamento del modello
                 statusText.text = "Failed to load the 3D object.";
                 Debug.LogError($"Failed to load the 3D object: {ex.Message}");
             }

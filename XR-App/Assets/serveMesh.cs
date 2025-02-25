@@ -10,12 +10,13 @@ using System;
 public class serveMesh : MonoBehaviour
 {
     [Header("UI Elements")]
-    public Button downloadButton;   // Bottone per scaricare il modello
+    public Button downloadButton;  
 
     [Header("Settings")]
-    public string modelUrl = "http://192.168.1.59:5000/objects/mesh.glb"; // URL fisso
+    public string modelUrl = "http://192.168.1.59:5000/objects/mesh.glb"; 
 
-    [SerializeField] private GameObject objPrefab; // Prefab da instanziare
+    [SerializeField] private GameObject objPrefab; 
+    [SerializeField] private AudioClip audioClip; 
 
     private void Start()
     {
@@ -66,6 +67,13 @@ public class serveMesh : MonoBehaviour
                     // Istanzia il prefab
                     GameObject instance = Instantiate(objPrefab, objPrefab.transform.position, objPrefab.transform.rotation);
                     Transform meshTransform = instance.transform.Find("object/Visuals/Mesh");
+            // Riproduce il suono se un AudioClip è assegnato
+                    if (audioClip != null)
+                    {
+                        AudioSource audioSource = instance.AddComponent<AudioSource>();
+                        audioSource.clip = audioClip;
+                        audioSource.Play();
+                    }
 
                     if (meshTransform != null)
                     {

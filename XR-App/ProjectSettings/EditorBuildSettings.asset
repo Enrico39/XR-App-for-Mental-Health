@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IslandScene.unity
     guid: 2ccbe7880232749818e4553da40e6e18
-  - enabled: 0
-    path: Assets/Samples/Meta XR Core SDK/71.0.0/Sample Scenes/SimultaneousHandsAndControllers.unity
-    guid: 52478c233ce9df34087cc379c060a2d3
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 34fc86b19623943208de9f4cc686ee09,
       type: 2}

@@ -23,7 +23,7 @@ public class TextTo3DUI1 : MonoBehaviour
     private List<GameObject> generatedObjects = new List<GameObject>();
 
     [SerializeField] private GameObject objPrefab;
-    [SerializeField] private AudioClip audioClip; // Audio clip selezionabile da Inspector
+    [SerializeField] private AudioClip audioClip; 
     
     private void Start()
     {
